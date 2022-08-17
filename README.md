@@ -1,0 +1,2 @@
+# JavaFX-CookieClicker
+Example project

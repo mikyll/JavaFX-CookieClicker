@@ -1,3 +1,5 @@
 # JavaFX-CookieClicker
 
-<img align="center" width="50%" src="./gfx/demo.gif"/>
+<p align="center">
+  <img width="50%" src="./gfx/demo.gif"/>
+</p>

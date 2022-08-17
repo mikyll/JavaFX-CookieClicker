@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="base" fx:id="base" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ControllerMenu">
+   <children>
+      <VBox fx:id="vboxBase" alignment="CENTER" layoutX="150.0" layoutY="100.0" prefHeight="200.0" prefWidth="300.0" spacing="10.0" style="-fx-border-color: green;">
+         <children>
+            <Button focusTraversable="false" mnemonicParsing="false" onAction="#showMenuOpt1" prefWidth="150.0" style="-fx-border-color: yellow;" text="Option 1" />
+            <Button focusTraversable="false" mnemonicParsing="false" onAction="#showMenuOpt2" prefWidth="150.0" style="-fx-border-color: cyan;" text="Option 2" />
+            <Button focusTraversable="false" mnemonicParsing="false" onAction="#startGame" prefWidth="150.0" text="Start Game" />
+         </children>
+      </VBox>
+      <VBox fx:id="vboxOpt1" alignment="CENTER" layoutX="150.0" layoutY="100.0" prefHeight="200.0" prefWidth="300.0" spacing="10.0" style="-fx-border-color: yellow;" visible="false">
+         <children>
+            <Slider value="50.0" />
+            <Button mnemonicParsing="false" text="Something" />
+         </children>
+         <padding>
+            <Insets left="70.0" right="70.0" />
+         </padding>
+      </VBox>
+      <VBox fx:id="vboxOpt2" alignment="CENTER" layoutX="150.0" layoutY="100.0" prefHeight="200.0" prefWidth="300.0" spacing="10.0" style="-fx-border-color: cyan;" visible="false">
+         <padding>
+            <Insets left="70.0" right="70.0" />
+         </padding>
+         <children>
+            <ComboBox prefHeight="26.0" prefWidth="218.0" promptText="something" />
+            <TextField text="something" />
+         </children>
+      </VBox>
+      <VBox fx:id="vboxBack" alignment="CENTER" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: magenta;" visible="false" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="50.0">
+         <children>
+            <Button id="back" mnemonicParsing="false" onAction="#goBack" prefHeight="30.0" prefWidth="30.0" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

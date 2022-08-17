@@ -1,0 +1,18 @@
+#back {
+	-fx-background-size: 30px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 50%;
+	-fx-background-image: url('../resources/icon_back_dark.png');
+}
+#cookie {
+	-fx-background-size: 200px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 50%;
+	-fx-background-image: url('../resources/icon_cookie.png');
+}
+#cookiePressed {
+	-fx-background-size: 200px;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 50%;
+	-fx-background-image: url('../resources/icon_cookie_pressed.png');
+}

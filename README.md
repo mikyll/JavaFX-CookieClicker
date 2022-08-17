@@ -1,2 +1,3 @@
 # JavaFX-CookieClicker
-Example project
+
+<img align="center" width="50%" src="./gfx/demo.gif"/>

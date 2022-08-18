@@ -1,8 +1,6 @@
 package controller;
 
 import java.io.File;
-import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 import javafx.collections.FXCollections;
@@ -53,17 +51,9 @@ public class ControllerMenu {
 
 	private boolean pressed = false;
 	
-	public ControllerMenu() throws URISyntaxException, IOException {
-		
-		/*ArrayList<String> res = ResourceWalker.getFileNames("/resources/images/");
-		Platform.exit();*/
-		//try {
-			this.listCookies = listFilesForFolder(new File("resources/images/"));
-			this.listSounds = listFilesForFolder(new File("resources/sounds/"));
-		/*} catch (URISyntaxException e) {
-			e.printStackTrace();
-			this.vboxSettings.setDisable(true);
-		}*/
+	public ControllerMenu() {
+		this.listCookies = listFilesForFolder(new File("resources/images/"));
+		this.listSounds = listFilesForFolder(new File("resources/sounds/"));
 	}
 	
 	public void initialize() {
@@ -81,8 +71,7 @@ public class ControllerMenu {
 		this.sliderVolume.valueProperty().addListener((observable, oldValue, newValue) -> {
             this.changeVolume();
         });
-		this.playerReleased.setVolume(this.sliderVolume.getValue() / 100);
-		this.playerPressed.setVolume(this.sliderVolume.getValue() / 100);
+		this.changeVolume();
 		
 		this.vboxBase.setVisible(true);
 		
@@ -143,6 +132,7 @@ public class ControllerMenu {
 				"resources/sounds/" + fileName + "_pressed" + SOUNDS_FILE_TYPE).toURI().toString());
 		this.playerReleased = new MediaPlayer(this.mediaClickReleased);
 		this.playerPressed = new MediaPlayer(this.mediaClickPressed);
+		this.changeVolume();
 	}
 	
 	@FXML private void releaseCookie(MouseEvent event) {
@@ -156,28 +146,11 @@ public class ControllerMenu {
 		}
 	}
 	
-	public ArrayList<String> listFilesForFolder(final File folder) {
-	    ArrayList<String> result = new ArrayList<String>();
-	    
-		for (final File fileEntry : folder.listFiles()) {
-	        if (fileEntry.isDirectory()) {
-	            listFilesForFolder(fileEntry);
-	        } else {
-	        	//System.out.println(fileEntry.getName());
-	        	String el = fileEntry.getName().split("_")[0];
-	        	if(!result.contains(el))
-	        		result.add(el);
-	        }
-	    }
-		return result;
-	}
-	
 	@FXML private void startGame(ActionEvent event) {
 		try {
 			FXMLLoader loader = new FXMLLoader(ControllerMenu.class.getResource("/view/ViewGame.fxml"));
 			Stage stage = (Stage) this.base.getScene().getWindow();
 			
-			System.out.println(this.comboBoxSound.getValue() + "_released" + SOUNDS_FILE_TYPE);
 			ControllerGame controller = new ControllerGame(
 					this.imageReleased,
 					this.imagePressed,
@@ -195,5 +168,21 @@ public class ControllerMenu {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public ArrayList<String> listFilesForFolder(final File folder) {
+	    ArrayList<String> result = new ArrayList<String>();
+	    
+		for (final File fileEntry : folder.listFiles()) {
+	        if (fileEntry.isDirectory()) {
+	            listFilesForFolder(fileEntry);
+	        } else {
+	        	//System.out.println(fileEntry.getName());
+	        	String el = fileEntry.getName().split("_")[0];
+	        	if(!result.contains(el))
+	        		result.add(el);
+	        }
+	    }
+		return result;
 	}
 }

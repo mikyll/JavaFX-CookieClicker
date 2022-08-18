@@ -88,6 +88,8 @@ public class ControllerMenu {
 			
 			System.out.println(this.comboBoxSound.getValue() + "_released" + SOUNDS_FILE_TYPE);
 			ControllerGame controller = new ControllerGame(
+					this.comboBoxCookie.getValue() + "_released" + COOKIE_FILE_TYPE,
+					this.comboBoxCookie.getValue() + "_pressed" + COOKIE_FILE_TYPE,
 					this.comboBoxSound.getValue() + "_released" + SOUNDS_FILE_TYPE,
 					this.comboBoxSound.getValue() + "_pressed" + SOUNDS_FILE_TYPE);
 			loader.setController(controller);

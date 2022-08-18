@@ -14,7 +14,7 @@
    <children>
       <VBox fx:id="vboxBase" alignment="CENTER" layoutX="150.0" layoutY="100.0" prefHeight="200.0" prefWidth="300.0" spacing="20.0">
          <children>
-            <Button disable="true" focusTraversable="false" mnemonicParsing="false" onAction="#showSettings" prefHeight="30.0" prefWidth="180.0" text="Settings">
+            <Button focusTraversable="false" mnemonicParsing="false" onAction="#showSettings" prefHeight="30.0" prefWidth="180.0" text="Settings">
                <font>
                   <Font size="18.0" />
                </font></Button>
@@ -36,7 +36,7 @@
                   <ComboBox fx:id="comboBoxCookie" prefHeight="30.0" prefWidth="150.0" />
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="50.0" prefWidth="300.0">
+            <HBox alignment="CENTER" disable="true" prefHeight="50.0" prefWidth="300.0">
                <children>
                   <Label prefHeight="30.0" prefWidth="150.0" text="Sound effects:">
                      <font>

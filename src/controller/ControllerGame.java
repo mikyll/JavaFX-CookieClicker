@@ -3,6 +3,8 @@ package controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -13,27 +15,36 @@ import model.Counter;
 public class ControllerGame {
 	@FXML private Label labelClicks;
 	@FXML private Button buttonClick;
+	@FXML private ImageView imageViewButton;
 	
-	private MediaPlayer playerPress;
-	private MediaPlayer playerRelease;
+	private Image imageReleased;
+	private Image imagePressed;
 	
-	private Media clickPress;
-	private Media clickRelease;
+	private MediaPlayer playerReleased;
+	private MediaPlayer playerPressed;
+	
+	private Media clickPressed;
+	private Media clickReleased;
 	
 	private boolean pressed = false;
 	
 	private Counter counter;
 	
-	public ControllerGame(String soundTrackReleased, String soundTrackPressed) {
-		this.clickPress = new Media(getClass().getResource("/resources/sounds/" + soundTrackReleased).toExternalForm());
-		this.clickRelease = new Media(getClass().getResource("/resources/sounds/" + soundTrackPressed).toExternalForm());
-		this.playerPress = new MediaPlayer(clickPress);
-		this.playerRelease = new MediaPlayer(clickRelease);
+	public ControllerGame(String imageReleased, String imagePressed, String soundTrackReleased, String soundTrackPressed) {
+		this.imageReleased = new Image(getClass().getResource("/resources/images/" + imageReleased).toExternalForm());
+		this.imagePressed = new Image(getClass().getResource("/resources/images/" + imagePressed).toExternalForm());
+		
+		this.clickReleased = new Media(getClass().getResource("/resources/sounds/" + soundTrackPressed).toExternalForm());
+		this.clickPressed = new Media(getClass().getResource("/resources/sounds/" + soundTrackReleased).toExternalForm());
+		this.playerReleased = new MediaPlayer(clickReleased);
+		this.playerPressed = new MediaPlayer(clickPressed);
 		
 		this.counter = new Counter();
 	}
 	
 	public void initialize() {
+		this.imageViewButton.setImage(this.imageReleased);
+		
 		this.labelClicks.setText("" + 0);
 	}
 	
@@ -42,9 +53,9 @@ public class ControllerGame {
 		{
 			pressed = true;
 			
-			this.playerPress.seek(Duration.ZERO);
-			this.playerPress.play();
-			this.buttonClick.setId("cookiePressed");
+			this.playerPressed.seek(Duration.ZERO);
+			this.playerPressed.play();
+			this.imageViewButton.setImage(this.imagePressed);
 		}
 	}
 	
@@ -53,9 +64,9 @@ public class ControllerGame {
 		{
 			pressed = false
 					;
-			this.playerRelease.seek(Duration.ZERO);
-			this.playerRelease.play();
-			this.buttonClick.setId("cookie");
+			this.playerReleased.seek(Duration.ZERO);
+			this.playerReleased.play();
+			this.imageViewButton.setImage(this.imageReleased);
 			
 			this.counter.increase();
 			this.labelClicks.setText("" + counter.getValue());

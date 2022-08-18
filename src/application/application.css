@@ -4,15 +4,14 @@
     -fx-background-position: 50%;
 	-fx-background-image: url('../resources/icons/icon_back_dark.png');
 }
-#cookie {
+.button {
 	-fx-background-size: 200px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: 50%;
-	-fx-background-image: url('../resources/images/cookie_released.png');
+}
+/*#cookie {
+	-fx-background-image: url('../resources/images/amongus_released.png');
 }
 #cookiePressed {
-	-fx-background-size: 200px;
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: 50%;
-	-fx-background-image: url('../resources/images/cookie_pressed.png');
-}
+	-fx-background-image: url('../resources/images/amongus_pressed.png');
+}*/

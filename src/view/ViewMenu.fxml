@@ -54,7 +54,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Slider fx:id="sliderVolume" blockIncrement="5.0" minorTickCount="5" onMouseDragReleased="#changeVolume" prefHeight="40.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" value="50.0">
+                  <Slider fx:id="sliderVolume" blockIncrement="5.0" minorTickCount="5" prefHeight="40.0" prefWidth="150.0" showTickLabels="true" showTickMarks="true" value="50.0">
                      <HBox.margin>
                         <Insets top="20.0" />
                      </HBox.margin>

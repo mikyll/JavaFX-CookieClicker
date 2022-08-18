@@ -77,6 +77,8 @@ public class ControllerMenu {
 		this.sliderVolume.valueProperty().addListener((observable, oldValue, newValue) -> {
             this.changeVolume();
         });
+		this.playerReleased.setVolume(this.sliderVolume.getValue() / 100);
+		this.playerPressed.setVolume(this.sliderVolume.getValue() / 100);
 		
 		this.vboxBase.setVisible(true);
 		

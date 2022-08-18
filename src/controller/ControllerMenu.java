@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 
@@ -52,14 +53,17 @@ public class ControllerMenu {
 
 	private boolean pressed = false;
 	
-	public ControllerMenu() {
-		try {
-			this.listCookies = listFilesForFolder(new File(getClass().getResource("/resources/images/").toURI()));
-			this.listSounds = listFilesForFolder(new File(getClass().getResource("/resources/sounds/").toURI()));
-		} catch (URISyntaxException e) {
+	public ControllerMenu() throws URISyntaxException, IOException {
+		
+		/*ArrayList<String> res = ResourceWalker.getFileNames("/resources/images/");
+		Platform.exit();*/
+		//try {
+			this.listCookies = listFilesForFolder(new File("resources/images/"));
+			this.listSounds = listFilesForFolder(new File("resources/sounds/"));
+		/*} catch (URISyntaxException e) {
 			e.printStackTrace();
 			this.vboxSettings.setDisable(true);
-		}
+		}*/
 	}
 	
 	public void initialize() {
@@ -127,16 +131,16 @@ public class ControllerMenu {
 	}
 	
 	private void loadImages(String fileName) {
-		this.imageReleased = new Image(getClass().getResource("/resources/images/" + fileName + "_released" + COOKIE_FILE_TYPE).toExternalForm());
-		this.imagePressed = new Image(getClass().getResource("/resources/images/" + fileName + "_pressed" + COOKIE_FILE_TYPE).toExternalForm());
+		this.imageReleased = new Image(new File("resources/images/" + fileName + "_released" + COOKIE_FILE_TYPE).toURI().toString());
+		this.imagePressed = new Image(new File("resources/images/" + fileName + "_pressed" + COOKIE_FILE_TYPE).toURI().toString());
 		this.imageViewCookie.setImage(this.imageReleased);
 	}
 	
 	private void loadMedia(String fileName) {
-		this.mediaClickReleased = new Media(getClass().getResource(
-				"/resources/sounds/" + fileName + "_released" + SOUNDS_FILE_TYPE).toExternalForm());
-		this.mediaClickPressed = new Media(getClass().getResource(
-				"/resources/sounds/" + fileName + "_pressed" + SOUNDS_FILE_TYPE).toExternalForm());
+		this.mediaClickReleased = new Media(new File(
+				"resources/sounds/" + fileName + "_released" + SOUNDS_FILE_TYPE).toURI().toString());
+		this.mediaClickPressed = new Media(new File(
+				"resources/sounds/" + fileName + "_pressed" + SOUNDS_FILE_TYPE).toURI().toString());
 		this.playerReleased = new MediaPlayer(this.mediaClickReleased);
 		this.playerPressed = new MediaPlayer(this.mediaClickPressed);
 	}
@@ -178,7 +182,8 @@ public class ControllerMenu {
 					this.imageReleased,
 					this.imagePressed,
 					this.mediaClickReleased,
-					this.mediaClickPressed);
+					this.mediaClickPressed,
+					this.sliderVolume.getValue());
 			loader.setController(controller);
 			
 			AnchorPane baseGame = (AnchorPane) loader.load();

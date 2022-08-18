@@ -27,12 +27,15 @@ public class ControllerGame {
 	
 	private Counter counter;
 	
-	public ControllerGame(Image imageReleased, Image imagePressed, Media mediaReleased, Media mediaPressed) {
+	public ControllerGame(Image imageReleased, Image imagePressed, Media mediaReleased, Media mediaPressed, double volume) {
 		this.imageReleased = imageReleased;
 		this.imagePressed = imagePressed;
 		
 		this.playerReleased = new MediaPlayer(mediaReleased);
 		this.playerPressed = new MediaPlayer(mediaPressed);
+		
+		this.playerReleased.setVolume(volume / 100);
+		this.playerReleased.setVolume(volume / 100);
 		
 		this.counter = new Counter();
 	}

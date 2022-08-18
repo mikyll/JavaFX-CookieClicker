@@ -9,6 +9,9 @@
     -fx-background-repeat: no-repeat;
     -fx-background-position: 50%;
 }
+#play {
+	-fx-background-image: url('../resources/icons/icon_play.png');
+}
 /*#cookie {
 	-fx-background-image: url('../resources/images/amongus_released.png');
 }

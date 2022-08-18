@@ -23,21 +23,16 @@ public class ControllerGame {
 	private MediaPlayer playerReleased;
 	private MediaPlayer playerPressed;
 	
-	private Media clickPressed;
-	private Media clickReleased;
-	
 	private boolean pressed = false;
 	
 	private Counter counter;
 	
-	public ControllerGame(String imageReleased, String imagePressed, String soundTrackReleased, String soundTrackPressed) {
-		this.imageReleased = new Image(getClass().getResource("/resources/images/" + imageReleased).toExternalForm());
-		this.imagePressed = new Image(getClass().getResource("/resources/images/" + imagePressed).toExternalForm());
+	public ControllerGame(Image imageReleased, Image imagePressed, Media mediaReleased, Media mediaPressed) {
+		this.imageReleased = imageReleased;
+		this.imagePressed = imagePressed;
 		
-		this.clickReleased = new Media(getClass().getResource("/resources/sounds/" + soundTrackPressed).toExternalForm());
-		this.clickPressed = new Media(getClass().getResource("/resources/sounds/" + soundTrackReleased).toExternalForm());
-		this.playerReleased = new MediaPlayer(clickReleased);
-		this.playerPressed = new MediaPlayer(clickPressed);
+		this.playerReleased = new MediaPlayer(mediaReleased);
+		this.playerPressed = new MediaPlayer(mediaPressed);
 		
 		this.counter = new Counter();
 	}
@@ -62,8 +57,8 @@ public class ControllerGame {
 	@FXML private void releaseCookie(MouseEvent event) {
 		if(pressed)
 		{
-			pressed = false
-					;
+			pressed = false;
+			
 			this.playerReleased.seek(Duration.ZERO);
 			this.playerReleased.play();
 			this.imageViewButton.setImage(this.imageReleased);

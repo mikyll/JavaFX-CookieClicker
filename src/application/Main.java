@@ -17,7 +17,7 @@ public class Main extends Application {
 			Scene scene = new Scene(baseMenu);
 			scene.getStylesheets().add(Main.class.getResource("/application/application.css").toExternalForm());
 			stage.setTitle("Cookie Clicker");
-			stage.getIcons().add(new Image(Main.class.getResource("/resources/icons/app_icon.png").toExternalForm()));
+			stage.getIcons().add(new Image(Main.class.getResource("/resources/icons/icon_app.png").toExternalForm()));
 			stage.setScene(scene);
 			stage.show();
 			

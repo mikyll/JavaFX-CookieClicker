@@ -3,6 +3,7 @@ package application;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -15,7 +16,8 @@ public class Main extends Application {
 			AnchorPane baseMenu = (AnchorPane) loader.load();
 			Scene scene = new Scene(baseMenu);
 			scene.getStylesheets().add(Main.class.getResource("/application/application.css").toExternalForm());
-			stage.setTitle("Test");
+			stage.setTitle("Cookie Clicker");
+			stage.getIcons().add(new Image(Main.class.getResource("/resources/icons/app_icon.png").toExternalForm()));
 			stage.setScene(scene);
 			stage.show();
 			

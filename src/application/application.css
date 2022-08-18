@@ -2,17 +2,17 @@
 	-fx-background-size: 30px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: 50%;
-	-fx-background-image: url('../resources/icon_back_dark.png');
+	-fx-background-image: url('../resources/icons/icon_back_dark.png');
 }
 #cookie {
 	-fx-background-size: 200px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: 50%;
-	-fx-background-image: url('../resources/icon_cookie.png');
+	-fx-background-image: url('../resources/images/cookie_released.png');
 }
 #cookiePressed {
 	-fx-background-size: 200px;
     -fx-background-repeat: no-repeat;
     -fx-background-position: 50%;
-	-fx-background-image: url('../resources/icon_cookie_pressed.png');
+	-fx-background-image: url('../resources/images/cookie_pressed.png');
 }
